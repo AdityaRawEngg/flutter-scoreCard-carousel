@@ -12,8 +12,6 @@ class ScoreCard extends StatelessWidget {
       future: ScheduleVM().fetchSchedule(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
-          print("Data");
-          print(snapshot.data);
           return ScoreCarousel(
             data: snapshot.data,
           );

@@ -24,20 +24,13 @@ class ScheduleModel {
 
   String get gameState {
     return this.schedule.game_state ?? "";
-    // return timeago.format(DateTime.parse(this.schedule.game_state),
-    //     locale: 'en_short');
   }
 
   String get gameStatus {
     return this.schedule.stt ?? "";
-    // if(this.schedule.stt)
-    // return this.schedule.stt;
-    // return timeago.format(DateTime.parse(this.schedule.game_state),
-    //     locale: 'en_short');
   }
 
   String get gameTime {
-    // return this.schedule.gameTime
     return timeago.format(DateTime.parse(this.schedule.gametime),
         locale: 'en_short');
   }
