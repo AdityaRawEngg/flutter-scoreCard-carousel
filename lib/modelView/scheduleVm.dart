@@ -5,8 +5,10 @@ import 'package:timeago/timeago.dart' as timeago;
 class ScheduleVM {
   List<ScheduleModel> schedule = [];
 
-  Future<List<ScheduleModel>> fetchSchedule() async {
-    final result = await ScheduleService().getSchedule();
+  Future<List<ScheduleModel>> fetchSchedule(
+      {String sport_key, String env_key}) async {
+    final result = await ScheduleService()
+        .getSchedule(env_key: env_key, sport_key: sport_key);
 
     this.schedule = result.map((data) => ScheduleModel(data)).toList();
     return this.schedule;

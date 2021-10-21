@@ -5,11 +5,14 @@ import 'package:score_card/modelView/scheduleVm.dart';
 import 'package:score_card/view/scoreCarousel.dart';
 
 class ScoreCard extends StatelessWidget {
+  final String sport_key, env_key;
+  ScoreCard({this.env_key, this.sport_key});
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       // future: fetchWidgetsData("https://0696-103-171-6-215.ngrok.io/"),
-      future: ScheduleVM().fetchSchedule(),
+      future:
+          ScheduleVM().fetchSchedule(env_key: env_key, sport_key: sport_key),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return ScoreCarousel(
