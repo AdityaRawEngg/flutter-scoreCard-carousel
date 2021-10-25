@@ -18,6 +18,7 @@ class _ScoreCarouselState extends State<ScoreCarousel> {
   final CarouselController _controller = CarouselController();
   @override
   Widget build(BuildContext context) {
+    print(widget.data[currentIndex].homeTeamName);
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 140.0,
@@ -57,6 +58,10 @@ class _ScoreCarouselState extends State<ScoreCarousel> {
                         gameTime: widget.data[currentIndex].gameTime,
                         gameStatus: widget.data[currentIndex].gameStatus,
                         gameState: widget.data[currentIndex].gameState,
+                        homeTeamName: widget.data[currentIndex].homeTeamName,
+                        visitorTeamName:
+                            widget.data[currentIndex].visitorTeamName,
+                        arena_name: widget.data[currentIndex].arena_name,
                       )
                   ],
                 ),

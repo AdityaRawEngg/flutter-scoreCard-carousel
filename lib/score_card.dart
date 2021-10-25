@@ -15,8 +15,20 @@ class ScoreCard extends StatelessWidget {
           ScheduleVM().fetchSchedule(env_key: env_key, sport_key: sport_key),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
+          List<ScheduleModel> data = [];
+          for (var i = 1; i < 4; i++) {
+            try {
+              data.add(snapshot.data.firstWhere((element) =>
+                  element.gameState != "tbd" &&
+                  element.gameStatus == i.toString()));
+            } catch (e) {
+              data.add(snapshot.data.firstWhere((element) =>
+                  element.gameState != "tbd" && element.gameStatus == "1"));
+            }
+          }
+          data.sort((a, b) => a.gameStatus.compareTo(b.gameStatus));
           return ScoreCarousel(
-            data: snapshot.data,
+            data: data,
           );
         } else if (snapshot.hasError) {
           print(snapshot.error);

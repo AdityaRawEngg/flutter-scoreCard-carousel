@@ -8,7 +8,10 @@ class ScoreCarouselItem extends StatelessWidget {
       visitorRecord,
       gameTime,
       gameStatus,
-      gameState;
+      gameState,
+      homeTeamName,
+      visitorTeamName,
+      arena_name;
 
   const ScoreCarouselItem(
       {Key key,
@@ -18,11 +21,16 @@ class ScoreCarouselItem extends StatelessWidget {
       this.visitorScore,
       this.gameTime,
       this.gameStatus,
-      this.gameState})
+      this.gameState,
+      this.homeTeamName,
+      this.visitorTeamName,
+      this.arena_name})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print("Team Name");
+    print(gameState);
     return Container(
       height: 140.0,
       child: Row(
@@ -35,7 +43,7 @@ class ScoreCarouselItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    homeScore,
+                    homeScore ?? homeTeamName,
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
                   ),
@@ -60,13 +68,13 @@ class ScoreCarouselItem extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        'some logo'.toUpperCase(),
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(top: 8.0),
+                    //   child: Text(
+                    //     'some logo'.toUpperCase(),
+                    //     style: TextStyle(fontSize: 12),
+                    //   ),
+                    // ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
@@ -82,7 +90,7 @@ class ScoreCarouselItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        '$gameStatus | $gameTime',
+                        '$gameTime',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w700),
                       ),
@@ -90,7 +98,7 @@ class ScoreCarouselItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        'HOME',
+                        homeTeamName == "Heat" ? "HOME" : "AWAY",
                         style: TextStyle(
                             fontSize: 11,
                             color: Color(
@@ -102,7 +110,7 @@ class ScoreCarouselItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        'TNT OT-> BALLY SPORTS SUN',
+                        arena_name,
                         style: TextStyle(
                           fontSize: 9,
                           color: Color(0xffFFADB5BD),
@@ -119,7 +127,7 @@ class ScoreCarouselItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    visitorScore,
+                    visitorScore != null ? visitorScore : visitorTeamName,
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
                   ),

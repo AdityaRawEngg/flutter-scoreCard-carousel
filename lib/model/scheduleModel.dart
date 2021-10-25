@@ -9,9 +9,11 @@ class Schedule {
   final game_state;
   final v;
   final h;
-  final stt;
+  final st;
+  final arena_name;
 
-  Schedule(this.year, this.gametime, this.game_state, this.h, this.stt, this.v);
+  Schedule(this.year, this.gametime, this.game_state, this.h, this.st, this.v,
+      this.arena_name);
 
   factory Schedule.fromJson(Map<String, dynamic> json) =>
       _$ScheduleFromJson(json);

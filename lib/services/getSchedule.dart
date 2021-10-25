@@ -11,7 +11,7 @@ class ScheduleService {
     // final newslist = await platform.invokeMethod('newsfeed');
     final response = await http.get(
       Uri.parse(
-          'http://api.digitalfanexperience.com/v1/nba/app/graphql?device=ios&version=1.0.0&query={schedules(,year:2021,season_id:"01",league_id:"00"){year,gametime,game_state,stt,v{tn,s,re},h{tn,s,re}}}'),
+          'http://api.digitalfanexperience.com/v1/nba/app/graphql?device=ios&version=1.0.0&query={schedules(league_id: "00", year: 2021, tid: "1610612748"){uid,year,gametime,arena_name,st,logo_url,game_state,h{tid,re,s,tn},v{tid,re,s,tn}}}'),
       headers: {"sport_key": sport_key, "env_key": env_key},
     );
     print("object");

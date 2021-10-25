@@ -12,8 +12,9 @@ Schedule _$ScheduleFromJson(Map<String, dynamic> json) {
     json['gametime'],
     json['game_state'],
     json['h'],
-    json['stt'],
+    json['st'],
     json['v'],
+    json['arena_name'],
   );
 }
 
@@ -23,5 +24,6 @@ Map<String, dynamic> _$ScheduleToJson(Schedule instance) => <String, dynamic>{
       'game_state': instance.game_state,
       'v': instance.v,
       'h': instance.h,
-      'stt': instance.stt,
+      'st': instance.st,
+      'arena_name': instance.arena_name,
     };

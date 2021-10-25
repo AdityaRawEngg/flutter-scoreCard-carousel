@@ -21,15 +21,15 @@ class ScheduleModel {
   ScheduleModel(this.schedule);
 
   String get year {
-    return this.schedule.year.toString() ?? "";
+    return this.schedule.year != "" ? this.schedule.year.toString() : null;
   }
 
   String get gameState {
-    return this.schedule.game_state ?? "";
+    return this.schedule.game_state != "" ? this.schedule.game_state : null;
   }
 
   String get gameStatus {
-    return this.schedule.stt ?? "";
+    return this.schedule.st != "" ? this.schedule.st.toString() : null;
   }
 
   String get gameTime {
@@ -38,26 +38,30 @@ class ScheduleModel {
   }
 
   String get homeTeamName {
-    return this.schedule.h["tn"] ?? "";
+    return this.schedule.h["tn"] != "" ? this.schedule.h["tn"] : null;
+  }
+
+  String get arena_name {
+    return this.schedule.arena_name != "" ? this.schedule.arena_name : null;
   }
 
   String get homeTeamScore {
-    return this.schedule.h["s"] ?? "";
+    return this.schedule.h["s"] != "" ? this.schedule.h["s"].toString() : null;
   }
 
   String get homeTeamRecord {
-    return this.schedule.h["re"] ?? "";
+    return this.schedule.h["re"] != "" ? this.schedule.h["re"] : null;
   }
 
   String get visitorTeamName {
-    return this.schedule.v["tn"] ?? "";
+    return this.schedule.v["tn"] != "" ? this.schedule.v["tn"] : null;
   }
 
   String get visitorTeamScore {
-    return this.schedule.v["s"] ?? "";
+    return this.schedule.v["s"] != "" ? this.schedule.v["s"].toString() : null;
   }
 
   String get visitorTeamRecord {
-    return this.schedule.v["re"] ?? "";
+    return this.schedule.v["re"] != "" ? this.schedule.v["re"] : null;
   }
 }
