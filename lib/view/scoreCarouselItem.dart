@@ -29,8 +29,8 @@ class ScoreCarouselItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Team Name");
-    print(gameState);
+    // print("Team Name");
+    // print(gameState);
     return Container(
       height: 140.0,
       child: Row(
