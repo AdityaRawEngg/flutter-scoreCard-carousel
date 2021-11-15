@@ -78,21 +78,31 @@ class ScoreCarouselItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
+                        'some logo'.toUpperCase(),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'OpenSans',
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
                         gameState == "active"
                             ? 'LIVE'
                             : gameState.toString().toUpperCase(),
                         style: TextStyle(
                             fontSize: 13,
                             color: Colors.red,
+                            fontFamily: 'OpenSans',
                             fontWeight: FontWeight.w700),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        '$gameTime',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w700),
+                        '$gameStatus | $gameTime',
+                        style: TextStyle(fontSize: 16, letterSpacing: -1),
                       ),
                     ),
                     Padding(
@@ -101,6 +111,7 @@ class ScoreCarouselItem extends StatelessWidget {
                         homeTeamName == "Heat" ? "HOME" : "AWAY",
                         style: TextStyle(
                             fontSize: 11,
+                            fontFamily: 'OpenSans',
                             color: Color(
                               0xffFF868E96,
                             ),
@@ -113,6 +124,7 @@ class ScoreCarouselItem extends StatelessWidget {
                         arena_name,
                         style: TextStyle(
                           fontSize: 9,
+                          fontFamily: 'OpenSans',
                           color: Color(0xffFFADB5BD),
                         ),
                       ),
